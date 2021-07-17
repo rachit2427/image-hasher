@@ -1,0 +1,24 @@
+@import "constants";
+@import "helpers";
+
+html {
+    .no-margin-padding();
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, label {
+    .no-margin-padding();
+}
+
+section {
+    padding: 3rem 0;
+    &:not(:last-of-type) {
+        box-shadow: 0 2px 4px 4px rgba(179, 188, 255, 0.15);
+    }
+}
+
+#react-root > * {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
