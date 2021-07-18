@@ -1,0 +1,27 @@
+@import "image-input";
+
+header {
+    padding: 0.75rem 0;
+    background-color: @header-green;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.25);
+
+    .first-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @media @small {
+            justify-content: center;
+            .website-logo {
+                width: 100%;
+            }
+        }
+    }
+
+    .second-row {
+        margin-top: 0.5rem;
+        display: flex;
+    }
+}

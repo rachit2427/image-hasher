@@ -1,0 +1,87 @@
+.gallery {
+    flex: 1;
+
+    & > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: initial;
+        flex-wrap: wrap;
+
+        .gallery-item-wrapper {
+            box-sizing: border-box;
+            padding: 1rem;
+            width: 33.33333%;
+
+            @media @medium {
+                width: 50%;
+            }
+
+            @media @small {
+                width: 100%;
+            }
+
+            .gallery-item {
+                background-color: @gallery-item-bg-color;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+                border: 1px solid transparent;
+                height: 100%;
+                transition: border-color 1s ease;
+                cursor: pointer;
+
+                .image-container {
+                    img {
+                        max-width: 100%;
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+
+                        @media @medium {
+                            height: 300px;
+                        }
+
+                        @media @small {
+                            height: 350px;
+                        }
+                    }
+                }
+
+                .info-container {
+                    padding: 1rem;
+
+                    .loading-status {
+                        transition: color 1s ease;
+                    }
+                }
+
+                &.loading {
+                    border-color: orange;
+
+                    .loading-status {
+                        color: @gallery-item-computing-color;
+                    }
+                }
+                &.loaded {
+                    border-color: greenyellow;
+
+                    .loading-status {
+                        color: @gallery-item-computed-color;
+                    }
+                }
+                &.error {
+                    border-color: red;
+
+                    .loading-status {
+                        color: @gallery-item-error-color;
+
+                        span {
+                            color: @gallery-item-error-subcolor;
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}

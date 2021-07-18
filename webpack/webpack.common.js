@@ -2,12 +2,14 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        'image-hasher': path.resolve(__dirname, '../react/src/index.js'),
+        'image-hasher': './react/src/index.js',
+        'hash-calculator-worker': './react/src/workers/hashCalculatorWorker.js',
+        'image-fetch-worker': './react/src/workers/imageFetchWorker.js',
     },
     output: {
         path: path.resolve(__dirname, '../static/js/build'),
+        publicPath: '/static/js/build/',
         chunkFilename: '[name].js',
-        publicPath: '',
     },
     watchOptions: {
         ignored: /[\\/]node_modules[\\/]/,
@@ -16,6 +18,11 @@ module.exports = {
         extensions: ['.js', '.jsx'],
         alias: {
             '@image-hasher': path.resolve(__dirname, '../react/src'),
+        },
+        fallback: {
+            path: require.resolve('path-browserify'),
+            crypto: require.resolve('crypto-browserify'),
+            stream: require.resolve('stream-browserify'),
         },
     },
     module: {

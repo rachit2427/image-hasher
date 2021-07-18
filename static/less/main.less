@@ -1,24 +1,36 @@
 @import "constants";
 @import "helpers";
+@import "common";
+
+@import "modal/modal";
+@import "header/header";
+@import "gallery/gallery";
+@import "footer/footer";
 
 html {
     .no-margin-padding();
+    height: 100%;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, label {
+body {
+    min-height: 100%;
+    display: flex;
     .no-margin-padding();
 }
 
-section {
-    padding: 3rem 0;
-    &:not(:last-of-type) {
-        box-shadow: 0 2px 4px 4px rgba(179, 188, 255, 0.15);
-    }
+h1, h2, h3, h4, h5, h6, p, label {
+    .no-margin-padding();
 }
 
-#react-root > * {
-    padding-left: 1rem;
-    padding-right: 1rem;
+#react-root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

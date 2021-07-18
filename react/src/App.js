@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react'
-import smoothScroll from 'smoothscroll-polyfill'
-import $ from 'jquery'
+import React from 'react'
+import { Provider } from 'react-redux'
+import MainContainer from '@image-hasher/main-container/MainContainer'
+import configureStore from '@image-hasher/redux/config/store'
 
 const App = () => {
-    useEffect(() => {
-        smoothScroll.polyfill()
+    const store = configureStore()
 
-        /* Removing WebHostApp branding */
-        setTimeout(() => {
-            $("img[alt='www.000webhost.com']").parent().parent().remove()
-        }, 0)
-    }, [])
-
-    return <></>
+    return (
+        <Provider store={store}>
+            <MainContainer />
+        </Provider>
+    )
 }
 
 export default App

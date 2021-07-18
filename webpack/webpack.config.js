@@ -1,4 +1,4 @@
-const common = require('./common')
+const common = require('./webpack.common')
 
 module.exports = {
     mode: 'development',

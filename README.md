@@ -13,4 +13,4 @@ To run the app, follow the steps -
 
 That's it.
 
-Note: You will need PHP to start a local server.
+Note: You will need PHP (preferably 7+) to start a local server.

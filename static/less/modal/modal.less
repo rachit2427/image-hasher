@@ -1,0 +1,118 @@
+.modal-wrapper {
+    position: fixed;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 1rem;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    .close {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+
+        &::after {
+            content: "+";
+            display: inline-block;
+            color: white;
+            font-size: 3rem;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+    }
+
+    .modal {
+        background-color: white;
+        max-width: 1200px;
+        width: 85%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto;
+        grid-template-areas:
+            'image-container image-container content-container';
+
+        @media @tablet {
+            margin-top: 5rem;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                'image-container'
+                'content-container';
+        }
+
+        & > * {
+            max-height: 500px;
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            grid-area: image-container;
+
+            img {
+                max-width: 100%;
+                width: 100%;
+                height: 100%;
+                max-height: inherit;
+                object-fit: cover;
+            }
+        }
+        .content-container {
+            grid-area: content-container;
+            padding: 1rem;
+            overflow: auto;
+
+            .modal-title {
+                font-size: 1.2rem;
+                text-align: center;
+                border-bottom: 2px solid @input-border-color;
+                padding-bottom: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .hash-stats {
+                margin-top: 1rem;
+                word-break: break-word;
+                color: @gallery-item-color;
+
+                &.url-block, &.size-info {
+                    span {
+                        display: inline-block;
+                    }
+                }
+
+                span {
+                    color: @gallery-item-computed;
+                    display: block;
+                    margin-top: 0.3125rem;
+
+                    &.computing {
+                        color: @gallery-item-computing;
+                    }
+
+                    .time-block {
+                        display: inline-block;
+                        margin-top: 0;
+                        font-size: 0.875rem;
+                        color: @gallery-hash-time-block-color;
+                    }
+                }
+
+                &.total-time-block {
+                    margin-top: 1.5rem;
+                    text-align: center;
+                    border-top: 2px solid @input-border-color;
+                    padding-top: 1rem;
+                }
+            }
+
+        }
+    }
+}
